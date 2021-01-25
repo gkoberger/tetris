@@ -6,9 +6,350 @@
 body
   padding: 50px
   font: 14px "Open Sans", Helvetica, Arial, sans-serif
+  background #1ca1f3
 a
   color: #00B7FF
 
 #pg-index
   p
     color #888
+
+#calendar-outside
+  background #fff
+  width 470px
+  height 560px
+  padding 40px 40px 20px 80px
+  border-radius 10px
+  position relative
+  .times
+    position absolute
+    left 0
+    text-align right
+    width 80px
+    border-right 1px solid #eeeeee
+    padding-right 7px
+    font-size 11px
+    color #bbb
+    .t
+      height 50px
+
+#calendar
+  position relative
+  top -150px
+  padding-top 150px
+  .d
+    width 50px
+    border-right 1px solid #eee
+    height 500px
+    float left
+    span
+      display block
+      text-align center
+      font-size 11px
+      color #BBB
+      pointer-events none
+      position relative
+      top -20px
+
+.cube
+  position absolute
+  top 0
+  left 0
+  transition 0.2s ease-out
+  &.shape-L
+    width 100px
+    height 100px
+    .c1
+      position absolute
+      width 50px
+      height 50px
+      top 0
+      left 0
+      transition 0.2s ease-out
+      padding 2px 2px 0 2px
+    .c2
+      position absolute
+      width 50px
+      height 50px
+      top 50px
+      left 50px
+      transition 0.2s ease-out
+      padding 2px
+    .c3
+      position absolute
+      width 50px
+      height 50px
+      top 50px
+      left 0
+      transition 0.2s ease-out
+      padding 0 2px 2px 2px
+    .c4
+      display none
+    .i
+      background #e0f7d6
+      width 100%
+      height 100%
+      border 1px solid #90e27b
+      border-radius 2px
+      padding 0 2px
+    &.r0, &.r2
+      .c1 .i
+        border-bottom 0 none
+        border-radius 2px 2px 0 0
+      .c3 .i
+        border-top 0 none
+        border-radius 0 0 2px 2px
+    &.r1, &.r3
+      .c1
+        padding 2px
+      .c2
+        padding 2px 2px 2px 0
+      .c3
+        padding 2px 0 2px 2px
+      .c2 .i
+        border-left 0 none
+        border-radius 0 2px 2px 0
+      .c3 .i
+        border-right 0 none
+        border-radius 2px 0 0 2px
+  &.shape-I
+    width 150px
+    height 150px
+    transform-origin 50% 50%
+    .c1
+      position absolute
+      width 50px
+      height 50px
+      top 50px
+      left 0px
+      transition 0.2s ease-out
+      padding 2px
+    .c2
+      position absolute
+      width 50px
+      height 50px
+      top 50px
+      left 50px
+      transition 0.2s ease-out
+      padding 2px
+    .c3
+      position absolute
+      width 50px
+      height 50px
+      top 50px
+      left 100px
+      transition 0.2s ease-out
+      padding 2px
+    .c4
+      display none
+    .i
+      background #ffe7ce
+      width 100%
+      height 100%
+      border 1px solid #f0bc8a
+      border-radius 2px
+    &.r1, &.r3
+      .c1
+        padding 2px 0px 2px 2px
+      .c2
+        padding 2px 0
+      .c3
+        padding 2px 2px 2px 0px
+      .c1 .i
+        border-right 0 none
+        border-radius 2px 0 0 2px
+      .c2 .i
+        border-right 0 none
+        border-radius 0 0
+        border-left 0 none
+      .c3 .i
+        border-left 0 none
+        border-radius 0 2px 2px 0
+  &.shape-O
+    width 100px
+    height 100px
+    transform-origin 50% 50%
+    .c1
+      position absolute
+      width 50px
+      height 50px
+      top 0px
+      left 0px
+      transition 0.2s ease-out
+      padding 2px 2px 0 2px
+    .c2
+      position absolute
+      width 50px
+      height 50px
+      top 0px
+      left 50px
+      transition 0.2s ease-out
+      padding 2px 2px 0 2px
+    .c3
+      position absolute
+      width 50px
+      height 50px
+      top 50px
+      left 0px
+      transition 0.2s ease-out
+      padding 0 2px 2px 2px
+    .c4
+      position absolute
+      width 50px
+      height 50px
+      top 50px
+      left 50px
+      transition 0.2s ease-out
+      padding 0 2px 2px 2px
+    .i
+      background #fadaed
+      width 100%
+      height 100%
+      border 1px solid #f7a1df
+      border-radius 2px
+    &.r0, &.r2
+      .c1 .i
+        border-bottom 0 none
+        border-radius 2px 2px 0 0
+      .c2 .i
+        border-bottom 0 none
+        border-radius 2px 2px 0 0
+      .c3 .i
+        border-top 0 none
+        border-radius: 0 0 2px 2px
+      .c4 .i
+        border-top 0 none
+        border-radius: 0 0 2px 2px
+    &.r1, &.r3
+      .c2, .c4
+        padding 2px 2px 2px 0
+      .c1, .c3
+        padding 2px 0px 2px 2px
+      .c1 .i
+        border-right 0 none
+        border-radius 2px 0 0 2px
+      .c2 .i
+        border-left 0 none
+        border-radius 0 2px 2px 0
+      .c3 .i
+        border-right 0 none
+        border-radius 2px 0 0 2px
+      .c4 .i
+        border-left 0 none
+        border-radius 0 2px 2px 0
+  &.shape-S
+    width 150px
+    height 150px
+    transform-origin 50% 50%
+    .c1
+      position absolute
+      width 50px
+      height 50px
+      top 0px
+      left 0px
+      transition 0.2s ease-out
+      padding 2px
+    .c2
+      position absolute
+      width 50px
+      height 50px
+      top 0px
+      left 50px
+      transition 0.2s ease-out
+      padding 2px 2px 0 2px
+    .c3
+      position absolute
+      width 50px
+      height 50px
+      top 50px
+      left 50px
+      transition 0.2s ease-out
+      padding 0px 2px 2px 2px
+    .c4
+      position absolute
+      width 50px
+      height 50px
+      top 50px
+      left 100px
+      transition 0.2s ease-out
+      padding 2px
+    .i
+      background #d2f2ff
+      width 100%
+      height 100%
+      border 1px solid #8bcdea
+      border-radius 2px
+    &.r0, &.r2
+      .c2 .i
+        border-bottom 0 none
+        border-radius 2px 2px 0 0
+      .c3 .i
+        border-top 0 none
+        border-radius: 0 0 2px 2px
+    &.r1, &.r3
+      .c1, .c3
+        padding 2px 0 2px 2px
+      .c2, .c4
+        padding 2px 2px 2px 0
+      .c1 .i
+        border-right 0 none
+        border-radius 2px 0 0 2px
+      .c2 .i
+        border-left 0 none
+        border-radius 0 2px 2px 0
+      .c3 .i
+        border-right 0 none
+        border-radius 2px 0 0 2px
+      .c4 .i
+        border-left 0 none
+        border-radius 0 2px 2px 0
+
+#blocker
+  background #1ca1f3
+  height: 117px;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+
+#game
+  overflow hidden
+  padding-top 50px
+  position relative
+
+
+#event
+  background linear-gradient(#fff, #ececed)
+  color #333
+  border-radius 8px
+  padding 15px
+  box-shadow 0 0 5px rgba(0,0,0,0.3)
+  z-index 1000
+  position relative
+  width 470px
+  margin-bottom 12px
+  .e
+    padding 0 0px 0 70px
+    background-repeat no-repeat
+    background-size contain
+  transform translateY(-60px)
+  opacity 0
+  transition 0.4s ease-out
+  &.on
+    opacity 1
+    transform translateY(0)
+  &.gmail
+    .e
+      background-image url(/images/gmail.png)
+  &.slack
+    .e
+      padding-left 50px
+      background-image url(/images/slack.png)
+  strong
+    font-size 13px
+  p
+    margin 0
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+    font-size 13px

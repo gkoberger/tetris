@@ -1,5 +1,45 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  #game
+    #blocker
+    #event.slack
+      .e
+        strong Test &lt;test@test.com&gt;
+        p Hey, wanted to throw some time on your calendar to go over the Q2 board
+    #calendar-outside
+      .times
+        .t 9:00am
+        .t 10:00am
+        .t 11:00am
+        .t 12:00am
+        .t 1:00pm
+        .t 2:00pm
+        .t 3:00pm
+        .t 4:00pm
+        .t 5:00pm
+        .t 6:00pm
+      #calendar
+        .d
+          span SUN
+        .d
+          span MON
+        .d
+          span TUES
+        .d
+          span WED
+        .d
+          span THURS
+        .d
+          span FRI
+        .d
+          span SAT
+        .cube.r0.shape-S
+          .c1
+            .i
+          .c2
+            .i
+          .c3
+            .i
+          .c4
+            .i

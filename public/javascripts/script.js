@@ -42,6 +42,7 @@ $.page("index", function () {
   */
 
   var interval;
+  var event;
 
   let board = [
     [".", ".", ".", ".", ".", ".", "."],
@@ -136,8 +137,9 @@ $.page("index", function () {
   }
 
   const notifications = {
-    'gmail': true,
-    'slack': true,
+    'gmail': ['Test <test@test.com>', 'Hey, wanted to throw some time on your calendar to go over the Q2 planning'],
+    'slack': ['Greg (@greg)', 'Have a few minutes for a quick catchup?'],
+    'zoom': ['Zoom', 'James has invited you to a Zoom meeting'],
   };
 
   function updateActive() {
@@ -148,12 +150,22 @@ $.page("index", function () {
     currentShape.$el.css('top', 50 * top);
   }
 
-  function randomArray(a) {
-    return a[Math.floor(Math.random() * a.length)];
+  function randomArray(a, curr) {
+    let sample = _.clone(a);
+
+    if (curr) {
+      // Make it so there's a better chance we don't repeat
+      sample = sample.concat(_.remove(_.clone(a), (o) => o !== curr));
+      sample = sample.concat(_.remove(_.clone(a), (o) => o !== curr));
+      sample = sample.concat(_.remove(_.clone(a), (o) => o !== curr));
+      sample = sample.concat(_.remove(_.clone(a), (o) => o !== curr));
+    }
+
+    return sample[Math.floor(Math.random() * sample.length)];
   }
 
   function createNewShape() {
-    currentShape.type = randomArray(Object.keys(shapes));
+    currentShape.type = randomArray(Object.keys(shapes), currentShape.type);
 
     currentShape.rotations = shapes[currentShape.type].rotations;
     currentShape.$el = $('.cube').eq(0).clone();
@@ -169,9 +181,16 @@ $.page("index", function () {
 
     setTimeout(function() {
       var $event = $('#event');
-      $event.removeClass(Object.keys(notifications).join(' ')).addClass(randomArray(Object.keys(notifications)));
+
+      event = randomArray(Object.keys(notifications), event);
+
+      $('#event strong').text(notifications[event][0]);
+      $('#event p').text(notifications[event][1]);
+
+      $event.removeClass(Object.keys(notifications).join(' ')).addClass(event);
       $('#event').addClass('on');
     }, 500);
+
     setTimeout(() => $('#event').removeClass('on'), 3000);
 
     $('#calendar').append(currentShape.$el);
@@ -254,6 +273,7 @@ $.page("index", function () {
     }
     if (e.keyCode === 13) {
       if(interval) return;
+      createNewShape();
       interval = setInterval(function () {
         move(1, 0, 0, false);
       }, 800);
